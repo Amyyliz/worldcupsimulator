@@ -10,17 +10,14 @@ async function getTeams() {
 }
     
 async function sendChampion(data) {
-    await fetch(
-        "https://development-internship-api.geopostenergy.com/WorldCup/FinalResult",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "git-user": "Amyyliz",
-            },
-            body: JSON.stringify(data),
-        }
-    );
+    await sendChampion({
+        equipeA: finalMatch.teamA.id,
+        equipeB: finalMatch.teamB.id,
+        golsEquipeA: finalMatch.goalsA,
+        golsEquipeB: finalMatch.goalsB,
+        golsPenaltyEquipeA: finalMatch.penaltyA,
+        golsPenaltyEquipeB: finalMatch.penaltyB
+});
 }
 
 if (!response.ok) {
